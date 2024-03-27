@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test027.html</title>
+
+<style type="text/css">
+
+	.all {margin: auto;}
+
+	body {background-image: url('images/lotto.jpeg'); background-size: 500px;}
+
+	* {font-family: 나눔고딕코딩; font-weight: bold;}
+	#txtCount {width: 30px;}
+	input.txtNum {text-align: center;}
+	input.btn {border-radius: 20pt; width: 100pt; text-align: center; border: none; padding: 5pt;}
+	input.btn:hover {background-color: #d6ffcf; color: #438032;}
+	input.txt {border-radius: 20pt; height: 20pt; text-align: center;}
+	
+	
+</style>
+
+<script type="text/javascript">
+
+	function makeLotto()
+	{
+		var num = new Array();					
+		
+		var numArr = new Array();
+		
+		//alert(numArr);
+		
+		//alert(num);
+				
+		for (var i=0; i<6; i++)
+		{
+			num = parseInt(Math.random()*45)+1;
+			
+			numArr[i] = num;
+			
+			for (var k=0; k<i; k++)
+			{
+				if (numArr[k] == numArr[i])
+				{
+					i--;						
+				}
+			}									
+			
+		}					
+				
+		for (var i=0; i<numArr.length-1; i++)
+		{
+			for (var j=i+1; j<numArr.length; j++)
+			{
+				if (numArr[i] > numArr[j])
+				{
+					numArr[i]=numArr[i]^numArr[j];
+					numArr[j]=numArr[j]^numArr[i];
+					numArr[i]=numArr[i]^numArr[j];
+				}
+				
+			}
+		}				
+		
+		for (var n=0; n<6; n++)
+		{				
+			document.getElementById("resultArea").value += numArr[n] + " ";				
+		}
+		document.getElementById("resultArea").value += "\n";
+		
+	}
+	
+	function actionOrder()
+	{
+		document.getElementById("resultArea").value="";
+		var count = parseInt(document.getElementById("txtCount").value);
+		
+		for (var i=0; i<count; i++)
+		{
+			makeLotto();
+		}
+	}
+	
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!--
+	로또 번호(1~45)를 중복되지 않은 정수 6개를 생성하여
+	출력해주는 페이지를 구현한다.
+	HTML, CSS, Javascript 를 활용한다.
+	난수 발생 함수를 활용한다.
+	번호순으로 오름차순 정렬하여 출력할 수 있도록 한다.
+	사용자가 주문한 장 수 만큼 출력할 수 있도록 한다.
+	
+	페이지 레이아웃
+	-------------------------------------------------------
+	
+	로또	[	] 장 <주문하기>				    #txtCount
+	          ┗ text      ┗ button
+	
+	결과
+	------------------------------ → textarea  #resultArea
+	1 2 5 8 10 12
+	6 13 22 23 29 31
+	2 3 21 34 42 44
+	------------------------------
+	
+	
+	-------------------------------------------------------		
+
+-->
+
+<div class="all">
+	<form>
+		<br>
+		로또
+		<input type="text" id="txtCount" class="txtNum"> 장
+		<input type="button" class="btn" value="주문하기" onclick="actionOrder()">
+		<br><br>
+		결과
+		<br>
+		<textarea rows="15" cols="30" id="resultArea" class="txt" readonly="readonly"></textarea>
+		
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

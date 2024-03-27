@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test026.html</title>
+
+<style type="text/css">
+	
+	* {font-family: 나눔고딕코딩; font-weight: bold;}
+	#user {width: 30px;}
+	#result {width: 350px;}
+	input.txtNum {text-align: center;}
+	input.btn {border-radius: 20pt; width: 100pt; text-align: center; border: none; padding: 5pt;}
+	input.btn:hover {background-color: #d6ffcf; color: #438032;}
+	input.txt {border-radius: 20pt; height: 20pt;}
+	
+
+</style>
+
+<script type="text/javascript">
+	
+	function actionGame()
+	{
+		var userNum = document.getElementById("user").value;
+		var user = "";
+		var comNum = 1;
+		var com = "";
+		var result = "";
+		
+		if (userNum==1)
+			user="가위";
+		else if (userNum==2)
+			user="바위";
+		else if (userNum==3)
+			user="보";
+		
+		comNum = (Math.floor(Math.random()*3))+1;
+		
+		if (comNum==1)
+			com="가위";
+		else if (comNum==2)
+			com="바위";			
+		else if (comNum==3)
+			com="보";
+		
+		if (userNum==comNum)
+		{
+			result = "비겼습니다~!!!";
+		}
+		else if ((userNum==1 && comNum==3) || (userNum==2 && comNum==1) || (userNum==3 && comNum==2))
+		{
+			result = "사용자가 이겼습니다~!!!";
+		}
+		else
+		{
+			result = "컴퓨터가 이겼습니다~!!!"
+		}
+		
+		//alert(result);		
+		
+		document.getElementById("result").value = "사용자:" + user + "    컴퓨터:" + com + " → " + result;
+				
+		
+		
+	}
+	
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!--
+	가위, 바위, 보 게임을 구성한다.
+	HTML, CSS, Javascript 를 활용한다.
+	자바스크립트 난수 발생 함수를 찾아 활용한다.
+	
+	→ http://w3schools.com
+	→ http://koxo.com
+	
+	페이지 레이아웃
+	--------------------------------------------------------------
+	
+	입력(1.가위, 2.바위, 3.보)		[ 2 ] <게임 결과 확인>
+	
+	[ 사용자:바위  컴퓨터:보 → 컴퓨터가 이겼습니다.	 ]
+	
+	
+	--------------------------------------------------------------
+-->
+
+<div>
+	<form>
+		입력(1.가위, 2.바위, 3.보)
+		<input type="text" id="user" class="txtNum">
+		<input type="button" class="btn" value="게임 결과 확인" onclick="actionGame()">
+		
+		<br><br><input type="text" id="result" class="txt" readonly="readonly">
+		
+	</form>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test015.html</title>
+<style type="text/css">
+
+	* {
+		color: #343;
+		font-family: 맑은 고딕;
+	}
+	input.box:focus {
+	
+		background-color: yellow;
+	}
+	input.btn:hover {
+	
+		color: orange;
+		font-weight: bold;
+	}
+</style>
+
+<script type="text/javascript">
+
+	function actionBtnA() {
+		
+	//테스트
+	//alert("A버튼 클릭 확인");
+	
+	alert(document.getElementById("txtLeft"));
+	
+	var txt01 = ducument.getElementBy.Id("txtLeft");
+	var txt02 = ducument.getElementBy.Id("txtRight");
+		
+	}
+	
+	function actionBtnB() {
+		
+	//테스트
+	//alert("B버튼 클릭 확인");
+	
+	alert(document.getElementById("txtRight"));
+
+		
+	}
+
+</script>
+
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 기본 관찰</h1>
+	<hr>
+</div>
+
+<div>
+	<br>
+	<input type="text" class="box" id="txtLeft">
+	<input type="button" value="A버튼" class="btn" id="btnA" onclick = "actionBtnA()">
+	<input type="button" value="B버튼" class="btn" id="btnB" onclick = "actionBtnB()">
+	<input type="text" class="box" id="txtRight">
+</div>
+
+</body>
+</html>

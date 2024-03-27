@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test023.html</title>
+<style type = "text/css">
+	
+	
+	*{color : #223322;}
+	input{font-family: 나눔고딕코딩; font-weight: bold;}
+	input.focus{background-color: #eeeedd;}
+	input.btn{font-weight; font-family: 나눔고딕코딩;}
+	input.btn.hover{color: orange; background-color: #334433;}
+	input.btn:acitve{color: red};
+	.text{text-align:center};
+	
+	textarea{font-family: 나눔고딕코딩; font-weight: bold;}
+	#txtCount{width: 20px; text-align: right;}
+</style>
+<script type="text/javascript">
+
+	function addSungjuk() {
+		
+		//함수 호출 확인
+		//alert("확인");
+		
+		var str = " 이름  국어  영어 수학";
+		var arr = new Array();
+		 
+		var n = 0;
+		
+		var a = 1;
+		//prompt("  이름  국어 영어 수학");
+		
+		do{
+			
+			str = prompt("이름 국어 영어 수학("+(n+1)+") : ");
+			
+			if(str==null || str==" "||str==""||str==".") {
+				
+				break;
+			}
+			
+			arr[n] = str.split(" ");
+			// -> split를 통해 자동으로 2차원 배열로 바뀜
+			
+			//확인
+			//alert(arr[n]);
+			
+			arr[n][4] = parseInt(arr[n][1]) + parseInt(arr[n][2]) + parseInt(arr[n][3]);
+			
+			if (a < parseInt(arr[n][4])) {
+				
+				arr[n][5] = a++;
+				
+			}
+			
+			n++;
+			
+			
+		} while(true);
+		
+		
+		document.getElementById("txtCount").value = arr.length;
+		document.getElementById("txtResult").value = "이름 국어 영어 수학 총점 등수\n";
+		
+		for(var n=0; n<arr.length; n++) {
+
+			document.getElementById("txtResult").value += arr[n] + "\n";
+
+		}
+		
+	}
+
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<!-- 
+	『prompt()』를 활용하여 여러 명의 성적 데이터를 입력받고,
+	등수를 부여하여, 리스트를 출력하는 페이지를 구성함
+	HTML, CSS, Javascript 활용함
+	
+	페이지 레이아웃 
+	-----------------------------------------------------------
+	
+	< 성적 정보 입력 > ─────→ prompt() ─────→ 이름 국어 영어 수학(1) : 
+	
+	전체 인원 수 :   [   ] 명
+	--------------------------------------------------------- textarea
+	이름     국어      영어    수학     총점      등수
+	김다슬    90        70      60      xxx        1등 
+	오수경    80        50      50      xxx        2등
+	김경태    60        40      40      xxx        3등
+	박범구 	  70        30      30      xxx        4등
+	------------------------------------------------------------ 
+ -->
+ 
+ <div>
+ 	<form>
+ 		<h3>성적 정보 입력</h3>
+ 		<input type="button" value="성적정보입력" class="btn" onclick="addSungjuk()"><br><br>
+ 		전체 인원 수<input type="text" id="txtCount" readonly="readonly"><br><br>
+ 		<textarea rows="10" cols="30" id="txtResult" readonly="readonly"></textarea>
+ 	
+ 	</form>
+ </div>
+
+</body>
+</html>
