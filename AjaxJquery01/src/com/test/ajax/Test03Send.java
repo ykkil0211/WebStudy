@@ -1,3 +1,12 @@
+/*==========================
+ 	ServletSample.java
+==========================*/
+
+//현재... 자바의 기본 클래스 Test004
+//이를... Servlet 으로 구성하는 방법
+
+// HttpServlet을 상속받는 클래스로 설계 → Servlet
+
 package com.test.ajax;
 
 import java.io.IOException;
@@ -32,11 +41,14 @@ public class Test03Send extends HttpServlet
 		//GET 방식이든 POST 방식이든
 		//어떤 방식의 요청에도 모두 처리할 수 있는 사용자 정의 메소드
 		
-		//String view = "WEB-INF/view/AjaxTest03.jsp";
-		String view = "AjaxTest03.jsp";
+		String view = "LoadTest03.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);
+		
+		
+		
 
 	}
+	
 }
