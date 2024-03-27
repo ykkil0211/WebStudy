@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest06.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		// 초기 게시물 구성 → 스크롤 생성 --------------------------------
+		
+		var docHeight = $(document).height();
+		
+		// (문서의 높이를 알아낸다.)
+		
+		// 테스트
+		//alert(docHeight);
+		//--==>> 919
+		
+		// 테스트
+		//alert($(window).scrollTop());
+		//--==>> 0
+		
+		alert($(window).height());
+		// 【docHeight】: (브라우저 창의 높이 - 스크롤바 움직일 때 높이.
+		// 【$(window).height()】 : (윈도우의 높이) - 전체 길이
+		// 【scrollTop】 : 스크롤바가 어디에 위치하는지 의미
+		
+		var scrollHeight = $(window).scrollTop() + $(window).height();
+		
+		for (var i=0; i<30; i++)
+		{
+			$("<h3>기존의 읽어온 게시물 "
+					+ $(document).height() + " / "
+					+ $(window).scrollTop() + " / "
+					+ $(window).height()
+					+ "</h3>").appendTo("body");
+			// 앞의 것을 뒤(body)에 붙인다 : appendTo
+			// 앞의 것에 뒤의 것을 붙인다 : append
+			
+			//=========================================================================
+			// 윈도우의 최대 높이보다 브라우저 창의 높이가 커졌을 때 스크롤바 생성됨.
+			//=========================================================================
+		}
+		
+		// --------------------------------- 초기 게시물 구성 → 스크롤 생성
+		
+		
+		$(window).scroll(function()
+		{
+			// 테스트
+			//alert("확인");
+			
+			var docHeight = $(document).height();
+			var scrollHeight = $(window).scrollTop() + $(window).height();
+			
+			// 스,크롤이 바닥으로 내려졌을 때...
+			// 태그 10 개 추가하여 body 에 붙이기
+			if (docHeight == scrollHeight)
+			{
+				for (var i=0; i<10; i++)
+				{
+					$("<h3>추가로 읽어온 게시물 "
+							+ $(document).height() + " / "
+							+ $(window).scrollTop() + " / "
+							+ $(window).height()
+							+ "</h3>").appendTo("body");
+				}
+			}
+				
+			
+		});
+		
+		
+	});
+	
+</script>
+
+</head>
+<body>
+
+
+
+</body>
+</html>

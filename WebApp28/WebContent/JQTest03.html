@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest03.html</title>
+<style type="text/css">
+	*
+	{
+		margin: 0px;
+		padding: 0px;	
+	}
+	
+	div
+	{
+		margin: 5px;
+		padding: 3px;
+		border: 3px solid black;
+		border-radius: 10px;
+	}
+</style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function()
+	{
+		//alert("제이쿼리 인식~!!!");
+		
+		//$("div").click(동작);
+		
+		$("div").click(function()
+		{
+			//alert("테스트");
+			
+			//alert($(this).html());
+			//--==>> <h1>E강의실</h1>
+			//       <p>JSP 수업 중</p>
+			
+			//alert($(this).text());
+			//--==>> E강의실
+			//       JSP 수업 중
+			
+			//alert($("h1", this).text());
+			// div 내부의 h1 태그 텍스트를 출력
+			//--==>> E강의실
+			
+			//alert($("p", this).text());
+			// div 내부의 p 태그 텍스트를 출력
+			//--==>> JSP 수업 중
+			
+			var h1 = $("h1", this).text();
+			var p = $("p", this).text();
+			
+			alert(h1 + " / " + p);
+			// var h1에 div의 h1 자식 태그 텍스트를 담고
+			// var p 에 div의 p 자식 태그 텍스트를 담아서
+			// 중간에 " / " 문자열을 추가하여 출력한다.
+			
+			
+		})
+		
+	});
+	
+
+</script>
+
+
+</head>
+<body>
+
+<div>
+	<h1>A강의실</h1>
+	<p>JAVA 수업 중</p>
+</div>
+
+<div>
+	<h1>B강의실</h1>
+	<p>닷넷 수업 중</p>
+</div>
+
+<div>
+	<h1>C강의실</h1>
+	<p>오라클 수업 중</p>
+</div>
+
+<div>
+	<h1>D강의실</h1>
+	<p>ASP 수업 중</p>
+</div>
+
+<div>
+	<h1>E강의실</h1>
+	<p>JSP 수업 중</p>
+</div>
+
+<div>
+	<h1>F강의실</h1>
+	<p>제이쿼리 수업 중</p>
+</div>
+
+</body>
+</html>
