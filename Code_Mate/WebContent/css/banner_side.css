@@ -1,0 +1,633 @@
+@charset "UTF-8";
+
+/* 폰트 - 스위트 */
+@font-face {
+font-family: 'SUITE-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+}
+
+/* 폰트 - 강원교육튼튼체 */
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 모든 엘리먼트 선택 */
+*
+{
+	font-family: 'SUITE-Regular';
+	
+}
+
+
+/* 전체 div */
+div
+{
+	/* border: 1px solid gray; */
+}
+
+
+
+/* 전체 메뉴바 영역을 감싸는 최상위 부모 div */
+.menuArea
+{
+	/* border: 1px solid aqua; */
+	width: 300px;
+	padding: 10px;
+
+}
+
+/* 왼쪽 메뉴바를 감싸는 부모 div 영역 */
+.leftmenuBarBox
+{
+    position: absolute;
+    z-index: 20;
+	width: 420px;
+}
+
+
+/* 왼쪽 메뉴바 영역 */
+.leftmenuBar
+{
+	width: 90%;
+    height: 411px;
+	background: linear-gradient(0deg, #ededed, white);
+	padding: 10px;
+	margin: 100px 0px 0px 0px;
+	transform: translate(-297px, 0);
+	border-radius: 10px;
+	transition: .5s;
+	box-shadow : 2px 2px 2px 2px #87878775;
+}
+
+/* 메뉴 항목들을 감싸는 div */
+.menuOptions
+{
+	/* border: 2px solid yellow; */
+	width: 200px;
+	height: 320px;
+}
+
+
+/* Code mate 로고 이미지 */
+.LogoImage
+{
+	width: 156px;
+    object-fit: contain;
+    margin: -2px 0 10px 10px;
+}
+
+/* Code mate 로고 이미지를 감싸는 navbar div 영역 */
+.mainLogo
+{
+	display: none;
+	transition: .2s;
+}
+
+/* 메뉴의 a 태그 */
+.link
+{
+	/* 남산초록색 - #345F53 */
+	/* text-decoration: none;
+	color: #4f59ca;
+	#4f59ca;
+	font-weight: bold;
+	*/
+	text-decoration: none;
+	color: #4f59ca;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'SUITE-Regular';
+}
+
+
+
+/* 왼쪽 메뉴바의 대주제에 표시되는 아이콘 */
+.menuIcon
+{
+	font-size: 25px;
+	margin: 20px 0px 0px 67px;
+	line-height: 20px;
+	/* border: 1px solid orange; */
+	padding: 5px;
+	border-radius: 50%;
+	transition-property: all;
+	transition-duration:0.5s;
+	float: right;
+	position: relative;
+    bottom: 33px;
+    left: 41px;
+}
+
+.upside{position: relative; bottom: 4px;}
+
+/* 메뉴 옵션에 해당하는 a 태그 영역에 마우스 올렸을 때 */
+.nav-link:hover
+{
+	transform: translateY(5px);
+	transition: .5s;
+}
+.nav-link:focus, .nav-link:hover {
+    color: #4f59ca;
+}
+
+/* 메뉴바 큰 메뉴 한 줄 */
+.nav-item{width: 299px;}
+
+/* 왼쪽 메뉴바 부모 영역에 마우스를 올렸을 때 */
+/* 메뉴바 왼쪽에서 나타나기 */
+.leftmenuBarBox:hover > .leftmenuBar
+{
+	transform: translateX(10px);
+	transition: .5s; 
+}
+
+/* 왼쪽 메뉴바 부모 영역에 마우스를 올렸을 때 */
+/* 메뉴 옵션 항목 천천히 이동하기 */
+.leftmenuBarBox:hover > .leftmenuBar > .menuOptions
+{
+	transform: translateX(-10px) translateY(6px);
+	transition: .5s; 
+}
+
+/* 왼쪽 메뉴바 부모 영역에 마우스를 올렸을 때 */
+/* 로고 나타나기 */
+.leftmenuBarBox:hover > .leftmenuBar > a.navbar-brand
+{
+	display: block;
+	animation: fadein 3s;
+	
+}
+
+/* 페이드인 애니메이션 */
+@keyframes fadein
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
+
+
+
+
+
+/*=====[대주제 마우스 오버시, 소주제 보이기]=====*/
+
+/* 메뉴 하나에 해당하는 부모 엘리먼트 */
+.menuOptions > ul
+{
+	position: relative;
+}
+
+
+/* 대주제 메뉴에 마우스를 올렸을 때, 메뉴 아이콘 스타일 */
+.menuOptions > ul:hover > .link > .menuIcon
+{
+	background-color: #4f59ca;
+	color: white;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px gray;
+	transform:translateX(-10px) rotateY( 180deg );
+}
+
+/* 대주제 메뉴에 마우스를 올렸을 때, 작은 메뉴가 보이도록 설정 */
+.menuOptions > ul:hover > .miniMenuOption
+{
+	display: block;
+	left: 105%;
+	width: 100%;
+	position: absolute;
+	height: 200%;
+	top: 1%;
+	margin-bottom: 20%;
+	
+
+}
+
+/* 대주제 메뉴에 마우스를 올렸을 때, a 텍스트 색상 변경 */
+.menuOptions > ul:hover > .link
+{
+	color: #4f59ca;
+	transform:translateX(5px);
+
+}
+
+/*=================[ 소주제 ]=================*/
+
+/* 소주제 항목 */
+.miniMenuOption
+{
+	/* 기본적으로 숨겨진 상태 */
+	display: none;
+	/* border: 3px solid red; */
+	list-style: none;
+}
+
+.majorTopic{width: 267px;}
+
+/* 메뉴 소주제 항목 스타일 */
+.majorTopic ~ li > ul > .miniMenuOption{
+    display: block;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    left: -20%;
+    width: 150px;
+    font-weight: bold;
+    text-align: center;
+   	background-color: white;
+    transition-property: background-color;
+    transition-duration: 1s;
+    border-radius: 5px;
+    color: #5b7175;
+    box-shadow : 2px 2px 2px 2px #87878775;
+    
+}
+
+/* 메뉴 소주제 항목에 마우스 오버했을 때 li - before */
+.majorTopic ~ li > ul > .miniMenuOption:hover
+{
+ 	background-color: #4f59ca;
+	
+ 
+}
+
+/* 메뉴 소주제 항목에 마우스 오버했을 때 a */
+.majorTopic ~ li > ul > .miniMenuOption:hover > a 
+{
+    color: white;
+}
+
+
+/*==============[ 배너 ]==============*/
+
+/* 사이드바에 있는 로고 이미지 */
+.LogoImageBanner {
+    width: 156px;
+    object-fit: contain;
+    margin: 30px 0 10px 10px;
+}
+
+
+/*==============[ 검색창 ]==============*/
+
+/* 검색창 내부의 돋보기 아이콘 */
+ion-icon[name="search-circle"]
+{
+	line-height: 50px;
+	font-size: 37px;
+	color: #4f59ca;
+}
+
+/* 검색어 안내문 텍스트 스타일 */
+.searchText
+{
+	line-height: 50px;
+	font-size: 17px;
+	font-weight: bold;
+
+}
+
+
+/* 검색창 내부의 검색 폼 텍스트 입력창 */
+.searchTextForm
+{
+	line-height: 50px;
+}
+
+/* 검색창 내부 텍스트 입력창을 클릭했을 때 스타일 */
+.searchTextForm:focus::before
+{
+	color: red;
+}
+
+/*=================[ 멤버 정보 ]=================*/
+
+/* 회원 영역을 감싸는 div */
+.oneMember
+{
+    display: flex;
+    height: 40px;
+    width: 350px;
+}
+
+/* 회원 프로필이 들어갈 영역 지정 */
+#profile
+{
+	width: 40px;
+	height: 40px;
+	/* border: 1px solid blue; */
+	border-radius: 50%;
+	overflow: hidden;
+	/* margin: 20px 0 5px 5px; */
+	
+}
+
+
+
+/* 회원 프로필 이미지 삽입 */
+.memberImg
+{
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+}
+
+/* 실력 등급아이콘 */
+.gradeIcon
+{
+	font-size: 15px;
+	line-height: 33px;
+	/* margin: 23px 0px 0px 5px; */
+}
+
+/* 회원 닉네임 */
+.nickname
+{
+	/* margin: 25px 0px 25px 5px; */
+	+-size: 15px;
+	font-weight: bold;
+	line-height: 33px;
+	color: #2f4047;
+	margin: 0 5px 0 5px;
+	
+}
+
+
+/*==================================================*/
+/*======[F12 를 이용해 부트스트랩 스타일 변경]======*/
+/*==================================================*/
+
+/* ※『주석처리시, 원본 부트스트랩 CSS 스타일이 적용됨에 유의』※*/
+
+
+
+.nav-link
+{
+    display: block;
+    padding: 0;
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: none;
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.nav-underline
+{
+    --bs-nav-underline-gap: 1rem;
+    --bs-nav-underline-border-width: 0.125rem;
+    --bs-nav-underline-link-active-color: var(--bs-emphasis-color);
+    gap: 0;
+}
+
+.nav 
+{
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0;
+    --bs-nav-link-font-weight: 0;
+    --bs-nav-link-color: none;
+    --bs-nav-link-hover-color: #5eaa99;
+    /* --bs-nav-link-hover-color: #4f59ca; */
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+ 
+
+.offcanvas {
+    position: fixed;
+    bottom: 0;
+    z-index: var(--bs-offcanvas-zindex);
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    color: var(--bs-offcanvas-color);
+    visibility: hidden;
+    background-color: var(--bs-offcanvas-bg);
+    background-clip: padding-box;
+    outline: 0;
+    transition: var(--bs-offcanvas-transition);
+    margin: 70px 0px 0px 0px;
+}
+.offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
+    --bs-offcanvas-zindex: 1045;
+    --bs-offcanvas-width: 400px;
+    --bs-offcanvas-height: 16vh;
+    --bs-offcanvas-padding-x: 1rem;
+    --bs-offcanvas-padding-y: 1rem;
+    --bs-offcanvas-color: var(--bs-body-color);
+    --bs-offcanvas-bg: var(--bs-body-bg);
+    --bs-offcanvas-border-width: var(--bs-border-width);
+    --bs-offcanvas-border-color: var(--bs-border-color-translucent);
+    --bs-offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --bs-offcanvas-transition: transform 0.3s ease-in-out;
+    --bs-offcanvas-title-line-height: 1.5;
+}
+
+
+.form-control:focus {
+    /* color: var(--bs-body-color); */
+    /* background-color: var(--bs-body-bg); */
+    /* border-color: #86b7fe; */
+    outline: 0;
+    /* box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25); */
+}
+.searchTextForm {
+    line-height: 50px;
+}
+.me-2 {
+    margin-right: 0.5rem!important;
+}
+
+.form-control:focus {
+    color: none;
+    background-color: none;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+}
+.searchTextForm {
+    line-height: 50px;
+}
+.me-2 {
+    margin-right: 0.5rem!important;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border: 1px solid;
+    border-color: #d3d4d5;
+}
+
+.btn-outline-success {
+    --bs-btn-color: #4f59ca;
+    --bs-btn-border-color: #4f59ca;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #4f59ca;;
+    --bs-btn-hover-border-color: #4f59ca;;
+    --bs-btn-focus-shadow-rgb: 25,135,84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #4f59ca;;
+    --bs-btn-active-border-color: #4f59ca;;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #4f59ca;;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #4f59ca;;
+    --bs-gradient: none;
+}
+
+.banner-btn 
+{
+    background-color: none;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 7.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .9);
+    margin-right: auto;
+    margin-left: 16px;
+}
+.row{--bs-gutter-x: 0;}
+
+/*=====================================================*/
+
+
+
+/* 배너 버튼 아이콘 */
+#searchButton, #chatButton, #alarmButton
+{
+	padding: 0 5px 0 5px;
+	transition-property: all;
+	transition-duration:0.5s;
+	border-radius: 50%;
+	font-size: 20px;
+	line-height: 30px;
+
+}
+
+/* 검색 버튼 돋보기 아이콘에 마우스 올렸을 때 */
+#searchButton:hover, #chatButton:hover, #alarmButton:hover
+{
+	background: #4f59ca;
+	background-color : rgb(79,89,202, 0.7);
+}
+
+
+
+.buttonBox
+{
+	margin: 9px 30px 0 30px;
+}
+
+.bannerMainBox
+{
+	box-shadow : 2px 2px 2px 2px #87878775;
+	height: 62px;
+}
+
+.bannerMain
+{width: 1900px; max-width: none; padding-right: 10px; height: 100px;}
+
+.log{margin-top: 6px;}
+.mainArea{justify-content: center;}
+.flex{display:flex; width: 100%}
+.main-text{width: 100%;}
+.lastchange{margin-top: 40px;}
+/* 배너 안 아이콘 */
+.banner-btn-icon
+{
+    position: relative;
+    top: 1px;
+}
+.log{margin-top: 6px;}
+.mainArea{justify-content: center;}
+.flex{display:flex; width: 100%}
+.main-text{width: 100%;}
+.lastchange{margin-top: 0px; height: 40px;}
+
+ .searchFormArea{width: 700px; display: flex;}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+	}
+	
+	*
+	{
+		font-family: 'Pretendard-Regular';
+	}
+	
+	.offcanvas.hiding, .offcanvas.show, .offcanvas.showing {
+    visibility: visible;
+    width: 733px;
+    left: 31%;
+    border-radius: 13px;
+    height: 77px;
+}
+	
+	 .alarm-btn {
+    background-color: #f8f9fa;
+    border: #f8f9fa;
+    color: #4f59ca;
+    padding: 0 5px 0 5px;
+	transition-property: all;
+	transition-duration:0.5s;
+	border-radius: 50%;
+	font-size: 20px;
+	line-height: 30px;
+	
+}
+	.alarm-btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: #4f59ca;
+    }
+
+.btn-primary{
+	--bs-btn-bg: none;
+	--bs-btn-border-color: none;
+	
+}
+
+#searchButton, #chatButton ,#alarmButton{
+    padding: 0 5px 0 5px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 30px;
+    
+    color: #4f59ca;
+    
+}
